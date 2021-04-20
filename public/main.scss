@@ -5,7 +5,7 @@ $color-primary-soft: #f1e1c3;
 $color-secondary: #ad5b17;
 $color-tertiary: #1f3528;
 $color-text: #17271e;
-$color-background:  #e5e3e3;
+$color-background:  #c9c9c9;
 
 /* ________Typo________________________________________________________ */
 $typo-logo: 'Lobster', cursive;
@@ -26,20 +26,24 @@ Liens : pas de décoration
 */
 
 body{
-    margin: 0;
+    margin: 0 auto;
     font-family: $typo-text;
     font-size: 1.3em;
+    color: $color-text;
+    max-width: 1700px;
 }
-a 
-{
+a{
     text-decoration:none; /* pour enlever la mise en forme des liens */
+    color: $color-text;
+}
+li{
+    list-style-type: none;
 }
 button:hover{ /* pour enlever le contour rouge qui apparait au clic sur les boutons */
     outline-style: none;
     }
 
-
-/* PAGE ACCUEIL */
+/* PAGE ACCUEIL __________________________________________________________________*/
 
 header{
     display: flex;
@@ -107,26 +111,42 @@ header{
 }
 
 .range{
+    & h2{
+        text-align: center;
+    }
     &__container{
         display: flex;
         flex-wrap: wrap;
         justify-content:space-evenly;
         align-items: center;
-        background: $color-background;
     }
 }
 
 .card{
-    background: white;
-    width: 400px;
+    background: $color-background;
+    border-radius: 15px;
+    width: 320px;
+    height: 300px;
     margin: 10px;
     &__img{
+        margin: auto;
+        padding-top: 20px;
         width: 90%;
-        height: 300px;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 15px 15px 0 0;
+        & img{
+            width: 100%;
+            border-radius: 15px 15px 0 0;
+        }
     }
     &__content{
         width: 90%;
-        height: 100px;
+        margin: 0 auto;
+    }
+    &__content h3{
+        font-weight: 500;
+        margin: 5px 0;
     }
 }
 
@@ -139,5 +159,22 @@ footer{
         justify-content: center;
         align-items: center;
         height: 100px;
+        font-weight: 300;
+    }
+    & li{
+        margin: 0 30px;
+    }
+    & a{
+        color: white;
+    }
+}
+
+/* PAGE Camera0 __________________________________________________________________*/
+
+.camera0__options{
+    & li{
+        display: none;
+        border: $color-text solid 1px;
+        width: 100px;
     }
 }
