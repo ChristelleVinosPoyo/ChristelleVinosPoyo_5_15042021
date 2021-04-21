@@ -32,6 +32,14 @@ button:hover {
   outline-style: none;
 }
 
+button {
+  background: #ad5b17;
+  border-radius: 20px;
+  color: white;
+  font-size: 1em;
+  border: none;
+}
+
 /* PAGE ACCUEIL __________________________________________________________________*/
 header {
   display: flex;
@@ -47,15 +55,9 @@ header .logo {
   margin-left: 20px;
 }
 header button {
-  background: #ad5b17;
-  border-radius: 20px;
   width: 200px;
   height: 40px;
-  list-style-type: none;
-  color: white;
-  font-size: 1em;
   margin-right: 20px;
-  border: none;
 }
 
 .banner {
@@ -75,15 +77,9 @@ header button {
   margin-left: 20px;
 }
 .banner button {
-  background: #ad5b17;
-  border-radius: 20px;
   width: 200px;
   height: 40px;
-  list-style-type: none;
-  color: white;
-  font-size: 1em;
   margin-right: 20px;
-  border: none;
   z-index: 100;
   position: absolute;
   top: 55%;
@@ -154,11 +150,30 @@ footer a {
   color: white;
 }
 
-/* PAGE Camera0 __________________________________________________________________*/
-.camera0__options li {
-  display: none;
-  border: #17271e solid 1px;
-  width: 100px;
+/* PAGE produit __________________________________________________________________*/
+.product {
+  display: flex;
+  justify-content: center;
+}
+.product__img {
+  width: 40%;
+  margin: 20px;
+}
+.product__img img {
+  width: 100%;
+  border-radius: 10px;
+}
+.product__content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.product__content span {
+  margin: 20px;
+}
+.product__content button {
+  width: 200px;
+  height: 40px;
 }
 
 /*# sourceMappingURL=style.css.map */

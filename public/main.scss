@@ -42,6 +42,14 @@ li{
 button:hover{ /* pour enlever le contour rouge qui apparait au clic sur les boutons */
     outline-style: none;
     }
+button{
+        background: $color-secondary;
+        border-radius: $border-radius;
+        color: white;
+        font-size: 1em;
+        border: none;
+    }
+
 
 /* PAGE ACCUEIL __________________________________________________________________*/
 
@@ -58,15 +66,9 @@ header{
         margin-left: 20px;
     }
     & button{
-        background: $color-secondary;
-        border-radius: $border-radius;
         width: 200px;
         height: 40px;
-        list-style-type: none;
-        color: white;
-        font-size: 1em;
         margin-right: 20px;
-        border: none;
     }
 }
 
@@ -86,15 +88,9 @@ header{
         margin-left: 20px;
     }
     & button{
-        background: $color-secondary;
-        border-radius: $border-radius;
         width: 200px;
         height: 40px;
-        list-style-type: none;
-        color: white;
-        font-size: 1em;
         margin-right: 20px;
-        border: none;
         z-index: 100;
         position: absolute;
         top: 55%;
@@ -169,12 +165,29 @@ footer{
     }
 }
 
-/* PAGE Camera0 __________________________________________________________________*/
+/* PAGE produit __________________________________________________________________*/
 
-.camera0__options{
-    & li{
-        display: none;
-        border: $color-text solid 1px;
-        width: 100px;
+.product{
+    display: flex;
+    justify-content: center;
+    &__img{
+        width: 40%;
+        margin: 20px;
+    }
+    &__img img{
+        width: 100%;
+        border-radius: 10px;
+    }
+    &__content{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+    &__content span{
+        margin: 20px;
+    }
+    &__content button{
+        width: 200px;
+        height: 40px;
     }
 }
