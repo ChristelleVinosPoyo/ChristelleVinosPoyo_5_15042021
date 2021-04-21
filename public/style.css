@@ -38,6 +38,11 @@ button {
   color: white;
   font-size: 1em;
   border: none;
+  transition: transform 200ms;
+}
+
+button:hover {
+  transform: scale(1.05);
 }
 
 /* PAGE ACCUEIL __________________________________________________________________*/
@@ -154,6 +159,7 @@ footer a {
 .product {
   display: flex;
   justify-content: center;
+  margin: 0;
 }
 .product__img {
   width: 40%;
@@ -164,12 +170,23 @@ footer a {
   border-radius: 10px;
 }
 .product__content {
+  margin: 20px;
   width: 50%;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
-.product__content span {
-  margin: 20px;
+.product .options {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  visibility: hidden;
+}
+.product .option:hover {
+  background: #1f3528;
+  color: white;
 }
 .product__content button {
   width: 200px;

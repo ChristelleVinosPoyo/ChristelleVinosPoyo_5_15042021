@@ -9,7 +9,7 @@ fetch("http://localhost:3000/api/cameras/")
     console.log(data);
     for(let product of data){
         document.querySelector(".range__container").innerHTML +=
-        `<a href="./product.html?${product._id}">
+        `<a href="./product.html?${product._id}"> 
         <div class="card">
             <div class="card__img">
                 <img src=${product.imageUrl} alt="Photo d'un appareil photo argentique vintage">

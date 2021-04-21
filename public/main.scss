@@ -43,12 +43,17 @@ button:hover{ /* pour enlever le contour rouge qui apparait au clic sur les bout
     outline-style: none;
     }
 button{
-        background: $color-secondary;
-        border-radius: $border-radius;
-        color: white;
-        font-size: 1em;
-        border: none;
+    background: $color-secondary;
+    border-radius: $border-radius;
+    color: white;
+    font-size: 1em;
+    border: none;
+    transition: transform 200ms;
+
     }
+button:hover{
+    transform: scale(1.05);
+}
 
 
 /* PAGE ACCUEIL __________________________________________________________________*/
@@ -170,6 +175,7 @@ footer{
 .product{
     display: flex;
     justify-content: center;
+    margin: 0;
     &__img{
         width: 40%;
         margin: 20px;
@@ -179,12 +185,23 @@ footer{
         border-radius: 10px;
     }
     &__content{
+        margin: 20px;
         width: 50%;
         display: flex;
         flex-direction: column;
+        justify-content: space-around;
     }
-    &__content span{
-        margin: 20px;
+    & .options{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        padding: 10px;
+        border-radius: 10px;
+        visibility: hidden;
+    }
+    & .option:hover{
+        background: $color-tertiary;
+        color: white;
     }
     &__content button{
         width: 200px;
