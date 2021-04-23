@@ -39,6 +39,7 @@ button {
   font-size: 1em;
   border: none;
   transition: transform 200ms;
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 button:hover {
@@ -159,7 +160,6 @@ footer a {
 .product {
   display: flex;
   justify-content: center;
-  margin: 0;
 }
 .product__img {
   width: 40%;
@@ -176,17 +176,47 @@ footer a {
   flex-direction: column;
   justify-content: space-around;
 }
+.product .options-disponibles {
+  height: 40px;
+  line-height: 30px;
+  position: relative;
+  cursor: pointer;
+}
+.product .options-disponibles p {
+  margin: 0;
+  width: 200px;
+  height: 40px;
+  background: #c9c9c9;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: transform 200ms;
+}
+.product .options-disponibles p:hover {
+  transform: scale(1.05);
+}
 .product .options {
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  left: 230px;
+}
+.product .option {
+  background: #c9c9c9;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;
+  overflow: hidden;
   visibility: hidden;
+  transform: translateY(-120px);
+  transition: visibility 400ms 200ms, transform 400ms;
 }
-.product .option:hover {
-  background: #1f3528;
-  color: white;
+.product .options-disponibles:hover .option {
+  transform: translate(0);
+  visibility: visible;
 }
 .product__content button {
   width: 200px;
