@@ -1,5 +1,4 @@
 //pour appeler un objet via l'API, il faut mettre le num de l'id après l'url de api :
-const objet0 = "http://localhost:3000/api/cameras/5be1ed3f1c9d44000030b061";
 
 fetch("http://localhost:3000/api/cameras/")
 .then((response) => {

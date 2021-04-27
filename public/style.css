@@ -223,4 +223,57 @@ footer a {
   height: 40px;
 }
 
+/* PAGE panier __________________________________________________________________*/
+.panier__container {
+  width: 95%;
+  margin: auto;
+  background: #c9c9c9;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.camera {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #ffffff;
+  margin: 5px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.order-line {
+  width: 25%;
+}
+
+.panier__title, .panier__total {
+  width: 95%;
+  background: #c9c9c9;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  margin: 10px auto;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-weight: 500;
+}
+.panier__title .title, .panier__total .title {
+  width: 25%;
+}
+
+.panier__total .total {
+  width: 75%;
+  margin: auto auto;
+}
+.panier__total .somme {
+  width: 25%;
+  background: white;
+  border-radius: 10px;
+  margin: 5px 0;
+}
+
 /*# sourceMappingURL=style.css.map */
