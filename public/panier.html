@@ -20,6 +20,7 @@
         <a href="./index.html" class="logo">Oricamera</a>
     </header>
     <!--_____________________panier_______________________________________________-->
+    <h1>Articles dans votre panier</h1>
 
     <section class="panier">
         <div class="panier__title">
@@ -33,11 +34,49 @@
         </div>
         <div class="panier__total">
             <div class="total">TOTAL</div>
-            <div class="somme">somme</div>
+            <div class="somme"></div>
         </div>
 
     </section>
 
+    <!--_____________________formulaire_______________________________________________-->
+
+    <h2>Formulaire de contact</h2>
+
+    <form class="form" method="POST" action="destination.php">
+            <div class="form__container1">
+                <p>
+                        <label for="name">Nom : </label>
+                        <input type="text" name="Nom" id="name" autofocus>
+                </p>
+                <p>
+                        <label for="prenom">Prénom : </label>
+                        <input type="text" name="Prénom" id="prenom">
+                </p>
+                <p>
+                        <label for="email">E-mail : </label>
+                        <input type="email" name="email" id="email">
+                </p>
+                <p>
+                    <label for="adresse">Adresse : </label>
+                    <input type="text" name="Adresse" id="adresse">
+                </p>
+                <p>
+                    <label for="code-postal">Code postal : </label>
+                    <input type="number" name="Code postal" id="code-postal" maxlength="5">
+                </p>
+                <p>
+                    <label for="ville">Ville : </label>
+                    <input type="text" name="Ville" id="ville">
+                </p>
+            </div>
+            <div class="form__container2">
+                <button input type="submit" id="submit">
+                    Procéder au paiement
+                </button>
+            </div>
+
+    </form>
     <!--_____________________ footer _______________________________________________-->
     <footer>
         <ul>

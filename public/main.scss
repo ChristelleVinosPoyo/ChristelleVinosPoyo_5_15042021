@@ -290,3 +290,35 @@ footer{
         margin: 5px 0;
     }
 }
+        /*-------------formulaire-----------------*/
+.form{
+    width: 95%;
+    margin: auto;
+    background: $color-background;
+    border-radius: 10px;
+    padding: 10px;
+    & input{
+        width: 300px;
+        border: none;
+        border-radius: 10px;
+        line-height: 25px;
+    }
+    &__container1{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__container1 p{
+        margin: 10px;
+    }
+    & button{
+        width: 100%;
+        line-height: 25px;
+        padding: 10px;
+    }
+    &__container2{
+        width: 320px;
+        margin: 20px auto;
+    }
+}

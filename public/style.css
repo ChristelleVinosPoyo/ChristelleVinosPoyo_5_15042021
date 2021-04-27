@@ -276,4 +276,37 @@ footer a {
   margin: 5px 0;
 }
 
+/*-------------formulaire-----------------*/
+.form {
+  width: 95%;
+  margin: auto;
+  background: #c9c9c9;
+  border-radius: 10px;
+  padding: 10px;
+}
+.form input {
+  width: 300px;
+  border: none;
+  border-radius: 10px;
+  line-height: 25px;
+}
+.form__container1 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.form__container1 p {
+  margin: 10px;
+}
+.form button {
+  width: 100%;
+  line-height: 25px;
+  padding: 10px;
+}
+.form__container2 {
+  width: 320px;
+  margin: 20px auto;
+}
+
 /*# sourceMappingURL=style.css.map */
