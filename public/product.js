@@ -1,15 +1,15 @@
-const idOfUrl = window.location.search; // pour récupérer la partie de l'url à partir du "?"
-console.log(idOfUrl);
-
-// pour enlever le ? de l'id récupéré à partir de l'url : methode slice
-const id = idOfUrl.slice(1); //"1" pour couper idOfUrl après le 1er caractère de la chaine de caractères
+let params = (new URL(document.location)).searchParams; // pour récupérer les paramètres de l'URL
+console.log(params);
+let id = params.get('id'); // pour récupérer l'id présent dans l'URL
 console.log(id);
 
 fetch(`http://localhost:3000/api/cameras/${id}`)
-  .then((response) => {
+.then((response) => {
     return response.json();
-  })
-  .then((data) => {
+})
+.then((data) => {
+    // mise en forme du prix au format euros
+    let price = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(data.price/100);
 
     // affichage des données de la fiche produit
     document.querySelector(".product-sheet__container").innerHTML = `
@@ -20,20 +20,19 @@ fetch(`http://localhost:3000/api/cameras/${id}`)
             <div class="product__content">
                 <h1>${data.name}</h1>
                 <p>${data.description}</p>
-                <div class="options-disponibles">
-                    <p>Options disponibles</p>
-                    <div class="options">
-                        <span class="option option1">Objectif ${data.lenses[0]}</span>
-                        <span class="option option2">Objectif ${data.lenses[1]}</span>
-                        <span class="option option2">Objectif ${data.lenses[2]}</span>
-                    </div>
-                </div>
-                <span>${data.price} €</span>
+                <label for="options">Options disponibles :</label>
+                <select name="options" id="options">
+                </select>
+                <span>${price}</span>
                 <button class="button-panier">Ajouter au panier</button>
 
             </div>
         </div>
         `;
+    for (let lense of data.lenses){
+        document.getElementById("options").innerHTML +=
+        `<option id="option" value="${lense}">Objectif ${lense}</option>`
+    }
 
     // menu déroulant : selection d'une option -------------> else if ne marche pas 
     let options = document.querySelectorAll(".option");
@@ -55,47 +54,37 @@ fetch(`http://localhost:3000/api/cameras/${id}`)
         ) 
     }   
     
-
-    // for (let i = 0; i < option.length; i++) {
-    //     option[i].addEventListener("click", function() {
-    //         if (option[i].style.background = "none"){
-    //             option[i].style.background = "#1f3528";
-    //             option[i].style.color = "white"
-    //         }else if(option[i].style.background = "#1f3528"){
-    //             option[i].style.background = "none";
-    //             option[i].style.color = "#17271e"
-    //         }
-    //     });
-    // }
     // ________________ localstorage ______________________________________________________________________
     
     const button = document.querySelector(".button-panier");
     
     button.addEventListener("click", function(){
         let inLocalStorage = JSON.parse(localStorage.getItem("ProductsInLocalStorage")); //conversion en JS de l'objet "productInLocalStorage" récupéré sur localstorage
-        //console.log(inLocalStorage);
+        let selectOption = document.getElementById('options') 
 
         if (!inLocalStorage){ // s'il n'y a aucun produits enregistrés dans localstorage
             let inLocalStorage = []
             data.quantity = 1;
+            data.option = selectOption.options[selectOption.selectedIndex].value; // Récupération de l'option selectionnée
             inLocalStorage.push(data);
             localStorage.setItem("ProductsInLocalStorage", JSON.stringify(inLocalStorage)) //envoi du nouveau produit selectionnée vers localstorage au format JSON
         }
         else if (inLocalStorage){ // s'il y a déjà des produits enregistrés dans localstorage
             
-            //let indexOfDoublon = inLocalStorage.indexOf(data); //retourne le 1er index trouvé correspondant à data
             let indexOfDoublon = inLocalStorage.findIndex(element => element._id === data._id);
-            //console.log(indexOfDoublon);
             console.log(`index du doublon : ${indexOfDoublon}`);
 
-            if (indexOfDoublon === -1){ //si le produit à ajouter n'existe pas dans inLocalStorage
+            //si le produit à ajouter n'existe pas dans inLocalStorage OU s'il existe mais avec un option différente
+            if (indexOfDoublon === -1 || (indexOfDoublon >= 0 && inLocalStorage[indexOfDoublon].option != selectOption.options[selectOption.selectedIndex].value)){ 
                 data.quantity = 1;
+                data.option = selectOption.value;
                 inLocalStorage.push(data);
                 localStorage.setItem("ProductsInLocalStorage", JSON.stringify(inLocalStorage)) 
             }
-            else if(indexOfDoublon >= 0){ //si le produit à ajouter existe déjà dans inLocalStorage
+            //si le produit à ajouter existe déjà dans inLocalStorage ET l'option selectionnée est la même
+            else if(indexOfDoublon >= 0 && (inLocalStorage[indexOfDoublon].option === selectOption.options[selectOption.selectedIndex].value)){ 
                 inLocalStorage[indexOfDoublon].quantity ++;
-                console.log(`quantité du produit : ${inLocalStorage[indexOfDoublon].quantity}`);
+                data.option = selectOption.value;
                 localStorage.setItem("ProductsInLocalStorage", JSON.stringify(inLocalStorage)) 
             }
         } 

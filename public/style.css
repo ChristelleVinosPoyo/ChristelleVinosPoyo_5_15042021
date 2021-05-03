@@ -221,6 +221,14 @@ footer a {
 .product__content button {
   width: 200px;
   height: 40px;
+  margin-top: 20px;
+}
+.product__content span {
+  margin-top: 20px;
+}
+.product__content select {
+  margin-top: 10px;
+  font-size: 0.9em;
 }
 
 /* PAGE panier __________________________________________________________________*/

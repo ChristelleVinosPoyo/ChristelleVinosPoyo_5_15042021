@@ -24,15 +24,3 @@ let totalOrderPrice = new Intl.NumberFormat('de-DE', { style: 'currency', curren
 document.querySelector(".somme").innerHTML = `${totalOrderPrice}`;
 
 
-// somme TOTAL de la commande _____________________________
-
-// let cameraTotal = document.querySelectorAll(".camera__total"); // la methode reduce ne peut pas être appliquée directement au tableau cameraTotal
-// let tabCameraTotal = []; // création d'un tableau simple qui ne contiendra que les prix (innerHtml récupérés avec la boucle ci dessous)
-// for (let object of cameraTotal){
-//     let price = parseFloat(object.innerHTML); //object.innerHTML est une chaine de caractère. Convertis en nombre avec parseFloat
-//     tabCameraTotal.push(price)
-// }
-// let somme = tabCameraTotal.reduce((a, b)=> a + b,0); 
-// console.log(somme);
-
-// document.querySelector(".somme").innerHTML = `${somme}€`;

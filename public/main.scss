@@ -236,7 +236,16 @@ footer{
     &__content button{
         width: 200px;
         height: 40px;
+        margin-top: 20px;
     }
+    &__content span{
+        margin-top: 20px;
+    }
+    &__content select{
+        margin-top: 10px;
+        font-size: 0.9em;
+    }
+
 }
 /* PAGE panier __________________________________________________________________*/
 
