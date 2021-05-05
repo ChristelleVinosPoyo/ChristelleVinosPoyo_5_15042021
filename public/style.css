@@ -46,7 +46,6 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* PAGE ACCUEIL __________________________________________________________________*/
 header {
   display: flex;
   justify-content: space-between;
@@ -156,7 +155,6 @@ footer a {
   color: white;
 }
 
-/* PAGE produit __________________________________________________________________*/
 .product {
   display: flex;
   justify-content: center;
@@ -231,7 +229,6 @@ footer a {
   font-size: 0.9em;
 }
 
-/* PAGE panier __________________________________________________________________*/
 .panier__container {
   width: 95%;
   margin: auto;

@@ -43,15 +43,15 @@
 
     <h2>Formulaire de contact</h2>
 
-    <form class="form" method="POST" action="destination.php">
+    <form class="form" method="POST" action="#">
             <div class="form__container1">
                 <p>
                         <label for="name">Nom : </label>
-                        <input type="text" name="Nom" id="name" autofocus required>
+                        <input type="text" name="Nom" id="nom" autofocus required>
                 </p>
                 <p>
                         <label for="prenom">Prénom : </label>
-                        <input type="text" name="Prénom" id="prenom" required>
+                        <input type="text" name="Prenom" id="prenom" required>
                 </p>
                 <p>
                         <label for="email">E-mail : </label>
@@ -71,9 +71,12 @@
                 </p>
             </div>
             <div class="form__container2">
-                <button input type="submit" id="submit">
-                    Procéder au paiement
-                </button>
+                
+                <a class="submit-link" href="">
+                    <button type="submit" id="submit">
+                        Procéder au paiement
+                    </button>
+                </a>
             </div>
 
     </form>
@@ -87,6 +90,8 @@
         </ul>
     </footer>
 
-    <script type="text/javascript" src="./panier.js"></script>
+    <script type="text/javascript" src="./JS/utils.js"></script>
+    <script type="text/javascript" src="./JS/panier.js"></script>
+
 </body>
 </html>

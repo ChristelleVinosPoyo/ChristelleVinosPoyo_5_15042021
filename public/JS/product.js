@@ -1,7 +1,5 @@
 let params = (new URL(document.location)).searchParams; // pour récupérer les paramètres de l'URL
-console.log(params);
 let id = params.get('id'); // pour récupérer l'id présent dans l'URL
-console.log(id);
 
 fetch(`http://localhost:3000/api/cameras/${id}`)
 .then((response) => {
@@ -9,7 +7,7 @@ fetch(`http://localhost:3000/api/cameras/${id}`)
 })
 .then((data) => {
     // mise en forme du prix au format euros
-    let price = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(data.price/100);
+    let price = convertPrice(data.price);
 
     // affichage des données de la fiche produit
     document.querySelector(".product-sheet__container").innerHTML = `
@@ -34,25 +32,7 @@ fetch(`http://localhost:3000/api/cameras/${id}`)
         `<option id="option" value="${lense}">Objectif ${lense}</option>`
     }
 
-    // menu déroulant : selection d'une option -------------> else if ne marche pas 
-    let options = document.querySelectorAll(".option");
-
-    
-    for (let option of options) {
-        option.addEventListener("click", function(){
-                if (option.style.background = "none"){
-                    option.style.background = "#1f3528";
-                    option.style.color = "white"
-                }else if(option.style.background = "#1f3528"){
-                    option.style.background = "none";
-                    option.style.color = "#17271e"
-                }
-                if (option === "undefined"){
-                    option.style.visibility = "hidden"
-                }
-        }
-        ) 
-    }   
+   
     
     // ________________ localstorage ______________________________________________________________________
     
@@ -90,3 +70,4 @@ fetch(`http://localhost:3000/api/cameras/${id}`)
         } 
         })
     })
+
