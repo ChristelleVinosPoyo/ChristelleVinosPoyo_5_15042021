@@ -14,6 +14,7 @@ for(let product of inLocalStorage){
     
     `<div class="camera">
         <div class="camera__name order-line">${product.name}</div>
+        <div class="camera__name order-line">${product.option}</div>
         <div class="camera__quantity order-line">${product.quantity}</div>
         <div class="camera__price order-line">${cameraPrice}</div>
         <div class="camera__total order-line">${cameraTotalPrice}</div>
@@ -61,6 +62,7 @@ submit.addEventListener("click", function(event){
         //let submitLink = document.querySelector(".submit-link")
         //submitLink.setAttribute("href", "./confirmOrder.html")
         window.open(`./confirmOrder.html?id=${data.orderId}`, "confirmOrderPage");
+        localStorage.clear(); 
     })
     .catch(error => console.log(`message d'erreur : ${error}`))
  })

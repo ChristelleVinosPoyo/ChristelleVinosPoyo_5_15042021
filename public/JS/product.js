@@ -45,29 +45,33 @@ fetch(`http://localhost:3000/api/cameras/${id}`)
         if (!inLocalStorage){ // s'il n'y a aucun produits enregistrés dans localstorage
             let inLocalStorage = []
             data.quantity = 1;
-            data.option = selectOption.options[selectOption.selectedIndex].value; // Récupération de l'option selectionnée
+            data.option = selectOption.value; // Récupération de l'option selectionnée
             inLocalStorage.push(data);
             localStorage.setItem("ProductsInLocalStorage", JSON.stringify(inLocalStorage)) //envoi du nouveau produit selectionnée vers localstorage au format JSON
         }
         else if (inLocalStorage){ // s'il y a déjà des produits enregistrés dans localstorage
             
-            let indexOfDoublon = inLocalStorage.findIndex(element => element._id === data._id);
+            data.option = selectOption.value
+            let indexOfDoublon = inLocalStorage.findIndex(element => element._id === data._id && element.option === data.option) ;
             console.log(`index du doublon : ${indexOfDoublon}`);
 
             //si le produit à ajouter n'existe pas dans inLocalStorage OU s'il existe mais avec un option différente
-            if (indexOfDoublon === -1 || (indexOfDoublon >= 0 && inLocalStorage[indexOfDoublon].option != selectOption.options[selectOption.selectedIndex].value)){ 
+            if (indexOfDoublon === -1){ 
                 data.quantity = 1;
                 data.option = selectOption.value;
                 inLocalStorage.push(data);
                 localStorage.setItem("ProductsInLocalStorage", JSON.stringify(inLocalStorage)) 
             }
             //si le produit à ajouter existe déjà dans inLocalStorage ET l'option selectionnée est la même
-            else if(indexOfDoublon >= 0 && (inLocalStorage[indexOfDoublon].option === selectOption.options[selectOption.selectedIndex].value)){ 
+            else if(indexOfDoublon >= 0 ){ 
                 inLocalStorage[indexOfDoublon].quantity ++;
-                data.option = selectOption.value;
+                //data.option = selectOption.value;
                 localStorage.setItem("ProductsInLocalStorage", JSON.stringify(inLocalStorage)) 
             }
         } 
         })
     })
 
+    //.options[selectOption.selectedIndex]
+//    || (indexOfDoublon >= 0 && inLocalStorage[indexOfDoublon].option != selectOption.options[selectOption.selectedIndex].value)
+// && (inLocalStorage[indexOfDoublon].option === selectOption.options[selectOption.selectedIndex].value)
