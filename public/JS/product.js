@@ -7,7 +7,7 @@ fetch(`http://localhost:3000/api/cameras/${id}`)
 })
 .then((data) => {
     // mise en forme du prix au format euros
-    let price = convertPrice(data.price);
+    let price = Utils.convertPrice(data.price);
 
     // affichage des données de la fiche produit
     document.querySelector(".product-sheet__container").innerHTML = `
@@ -22,7 +22,7 @@ fetch(`http://localhost:3000/api/cameras/${id}`)
                 <select name="options" id="options">
                 </select>
                 <span>${price}</span>
-                <button class="button-panier">Ajouter au panier</button>
+                <a class="button button-panier">Ajouter au panier</a>
 
             </div>
         </div>
@@ -71,6 +71,8 @@ fetch(`http://localhost:3000/api/cameras/${id}`)
         } 
         })
     })
+    .catch(error => console.log(`message d'erreur : ${error}`))
+
 
     //.options[selectOption.selectedIndex]
 //    || (indexOfDoublon >= 0 && inLocalStorage[indexOfDoublon].option != selectOption.options[selectOption.selectedIndex].value)

@@ -58,9 +58,9 @@
         transform: translate(0);
         visibility: visible;
     }
-    &__content button{
+    &__content .button{
         width: 200px;
-        height: 40px;
+        height: 30px;
         margin-top: 20px;
     }
     &__content span{

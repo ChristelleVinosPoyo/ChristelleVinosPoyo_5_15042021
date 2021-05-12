@@ -8,7 +8,9 @@ fetch("http://localhost:3000/api/cameras/")
     console.log(data);
     for(let product of data){
         // mise en forme du prix au format euros
-       let price = convertPrice(product.price);
+        let price = Utils.convertPrice(product.price);
+        //let price = new Price(product.price);
+        //console.log(price.convertPrice);
 
         document.querySelector(".range__container").innerHTML +=
         `<a href="./product.html?id=${product._id}"> 
@@ -24,6 +26,8 @@ fetch("http://localhost:3000/api/cameras/")
     </a>`
     }
 })
+.catch(error => console.log(`message d'erreur : ${error}`))
+
 
 
 // page Camera0 _____________________________________________

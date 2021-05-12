@@ -27,14 +27,16 @@ li {
   list-style-type: none;
 }
 
-button:hover {
+.button:hover {
   /* pour enlever le contour rouge qui apparait au clic sur les boutons */
   outline-style: none;
 }
 
-button {
+.button {
   background: #ad5b17;
   border-radius: 20px;
+  padding: 5px 10px;
+  text-align: center;
   color: white;
   font-size: 1em;
   border: none;
@@ -42,7 +44,7 @@ button {
   box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
-button:hover {
+.button:hover {
   transform: scale(1.05);
 }
 
@@ -59,7 +61,7 @@ header .logo {
   color: #1f3528;
   margin-left: 20px;
 }
-header button {
+header a {
   width: 200px;
   height: 40px;
   margin-right: 20px;
@@ -81,9 +83,9 @@ header button {
   margin: 0;
   margin-left: 20px;
 }
-.banner button {
+.banner a {
   width: 200px;
-  height: 40px;
+  height: 30px;
   margin-right: 20px;
   z-index: 100;
   position: absolute;
@@ -109,7 +111,7 @@ header button {
 }
 
 .card {
-  background: #c9c9c9;
+  background: #e2e2e2;
   border-radius: 15px;
   width: 320px;
   height: 300px;
@@ -184,7 +186,7 @@ footer a {
   margin: 0;
   width: 200px;
   height: 40px;
-  background: #c9c9c9;
+  background: #e2e2e2;
   border-radius: 10px;
   padding-left: 10px;
   padding-top: 10px;
@@ -201,7 +203,7 @@ footer a {
   left: 230px;
 }
 .product .option {
-  background: #c9c9c9;
+  background: #e2e2e2;
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
@@ -216,9 +218,9 @@ footer a {
   transform: translate(0);
   visibility: visible;
 }
-.product__content button {
+.product__content .button {
   width: 200px;
-  height: 40px;
+  height: 30px;
   margin-top: 20px;
 }
 .product__content span {
@@ -232,7 +234,7 @@ footer a {
 .panier__container {
   width: 95%;
   margin: auto;
-  background: #c9c9c9;
+  background: #e2e2e2;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -257,7 +259,7 @@ footer a {
 
 .panier__title, .panier__total {
   width: 95%;
-  background: #c9c9c9;
+  background: #e2e2e2;
   display: flex;
   justify-content: space-evenly;
   text-align: center;
@@ -285,7 +287,7 @@ footer a {
 .form {
   width: 95%;
   margin: auto;
-  background: #c9c9c9;
+  background: #e2e2e2;
   border-radius: 10px;
   padding: 10px;
 }
@@ -304,7 +306,7 @@ footer a {
 .form__container1 p {
   margin: 10px;
 }
-.form button {
+.form .button {
   width: 100%;
   line-height: 25px;
   padding: 10px;
@@ -317,6 +319,95 @@ footer a {
 .order {
   text-align: center;
   margin: 60px;
+  background: #e2e2e2;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 1100px) {
+  .banner {
+    height: 400px;
+  }
+  .banner h1 {
+    top: 15%;
+  }
+  .banner .button {
+    top: 70%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .banner {
+    height: 300px;
+  }
+  .banner h1 {
+    top: 15%;
+  }
+  .banner .button {
+    top: 70%;
+  }
+
+  .product {
+    flex-direction: column;
+    align-items: center;
+  }
+  .product__img {
+    width: 90%;
+    margin: 20px;
+  }
+  .product__img img {
+    width: 100%;
+  }
+  .product__content {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 600px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+  }
+  header .logo {
+    margin-bottom: 10px;
+  }
+  header .button {
+    font-size: 0.8em;
+    padding: 4px 30px;
+  }
+
+  .banner {
+    margin-top: 20px;
+  }
+  .banner img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .banner h1 {
+    font-size: 1.5em;
+  }
+
+  .panier {
+    font-size: 0.9em;
+  }
+
+  footer {
+    height: auto;
+  }
+  footer ul {
+    flex-direction: column;
+    height: auto;
+  }
+  footer li {
+    margin: 3px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
