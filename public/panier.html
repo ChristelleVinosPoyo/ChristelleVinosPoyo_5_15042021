@@ -15,11 +15,15 @@
     <title>Mon panier</title>
 </head>
 <body>
+    
     <!--_____________________ header _______________________________________________-->
+    
     <header class="header">
         <a href="./index.html" class="logo">Oricamera</a>
     </header>
+    
     <!--_____________________panier_______________________________________________-->
+    
     <h1>Articles dans votre panier</h1>
 
     <section class="panier">
@@ -47,24 +51,33 @@
     <form class="form" method="POST" action="#">
             <div class="form__container1">
                 <p>
-                        <label for="name">Nom : </label>
-                        <input type="text" name="Nom" id="nom" autofocus required>
+                    <label for="nom">Nom : </label>
+                    <input type="text" name="Nom" id="nom" class="input"  pattern="[a-z]" autofocus required>
+                    <span class="error"></span>
+
                 </p>
                 <p>
-                        <label for="prenom">Prénom : </label>
-                        <input type="text" name="Prenom" id="prenom" required>
+                    <label for="prenom">Prénom : </label>
+                    <input type="text" name="Prenom" id="prenom" class="input" required>
+                    <span class="error"></span>
+
                 </p>
-                <p>
-                        <label for="email">E-mail : </label>
-                        <input type="email" name="email" id="email" required>
+                <p class="p-email">
+                    <label for="email">E-mail : </label>
+                    <input type="email" name="email" id="email" required>
+                    <span class="error-email"></span>
                 </p>
                 <p>
                     <label for="adresse">Adresse : </label>
-                    <input type="text" name="Adresse" id="adresse" required>
+                    <input type="text" name="Adresse" id="adresse" class="input" required>
+                    <span class="error"></span>
+
                 </p>
                 <p>
                     <label for="ville">Ville : </label>
-                    <input type="text" name="Ville" id="ville" required>
+                    <input type="text" name="Ville" id="ville" class="input" required>
+                    <span class="error"></span>
+
                 </p>
             </div>
             <div class="form__container2">
@@ -75,7 +88,9 @@
             </div>
 
     </form>
+
     <!--_____________________ footer _______________________________________________-->
+    
     <footer>
         <ul>
             <li><a href="#">Contact</a></li>

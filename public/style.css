@@ -315,6 +315,10 @@ footer a {
   width: 320px;
   margin: 20px auto;
 }
+.form .error {
+  color: red;
+  font-size: 1em;
+}
 
 .order {
   text-align: center;

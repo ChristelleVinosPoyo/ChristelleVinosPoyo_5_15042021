@@ -7,10 +7,9 @@ fetch("http://localhost:3000/api/cameras/")
 .then((data) => {
     console.log(data);
     for(let product of data){
+        
         // mise en forme du prix au format euros
         let price = Utils.convertPrice(product.price);
-        //let price = new Price(product.price);
-        //console.log(price.convertPrice);
 
         document.querySelector(".range__container").innerHTML +=
         `<a href="./product.html?id=${product._id}"> 
@@ -32,3 +31,5 @@ fetch("http://localhost:3000/api/cameras/")
 
 // page Camera0 _____________________________________________
 
+let prix = -100000 ;
+console.log(`conversion du prix : ${Utils.convertPrice(prix)}`);
