@@ -44,23 +44,14 @@ submit.addEventListener("click", function(event){
     
     event.preventDefault();
 
-    // Vérification des input du formulaire avant l'envoi au backend
-    //email.addEventListener("input", function(){
-        // let email = document.getElementById("email");
-        // let error = document.querySelector(".error");
-        // if (!email.validity.valid){
-        // error.innerHTML = " Veuillez saisir une adresse mail valide ";
-        // }
-        // else{
-        //     error.innerHTML = ""
-        // }
-    //})
     let email = document.getElementById("email");
-    let errorEmail = document.querySelector(".error-email");
-    let input = document.querySelector(".input")
-    let error = document.querySelector(".error");
+    let nom = document.getElementById("nom").value;
+    let prenom = document.getElementById("prenom").value;
+    let regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/g;
+    const verifNom = nom.match(regex);
+    const verifPrenom = prenom.match(regex);
     
-    if(inLocalStorage && email.validity.valid && submit.validity.valid){
+    if(inLocalStorage && email.validity.valid && verifNom !== null && verifPrenom !== null){
         for(let product of inLocalStorage){
             products.push(product._id);
         }
@@ -75,8 +66,8 @@ submit.addEventListener("click", function(event){
     else if (!inLocalStorage){
         window.alert("Le panier est vide.")
     }
-    else if (!input.validity.valid){
-        window.alert("Veuillez remplir chaque champ du formulaire.");
+    else if (verifNom === null || verifPrenom === null){
+        window.alert("Veuillez remplir correctement chaque champ du formulaire.");
     }
     else if (!email.validity.valid){
         window.alert("Veuillez saisir une adresse mail valide.");
@@ -109,7 +100,7 @@ submit.addEventListener("click", function(event){
 
             } 
             else {
-                window.alert("Chaque champ du formulaire doit être complété")
+                window.alert("Un problème est survenu. Vérifiez que chaque champ du formulaire est complété.")
             }
         })
         .catch(error => console.log(`message d'erreur : ${error}`))
