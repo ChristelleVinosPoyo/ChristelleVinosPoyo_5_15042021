@@ -47,7 +47,7 @@ submit.addEventListener("click", function(event){
     let email = document.getElementById("email");
     let nom = document.getElementById("nom").value;
     let prenom = document.getElementById("prenom").value;
-    let regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/g;
+    let regex = /^[a-zA-ZÀ-ú]+(([',. -][a-zA-ZÀ-ú])?[a-zA-ZÀ-ú]*)*$/g;
     const verifNom = nom.match(regex);
     const verifPrenom = prenom.match(regex);
     
@@ -96,7 +96,8 @@ submit.addEventListener("click", function(event){
                     id: data.orderId
                 }
                 localStorage.setItem("forConfirmOrder", JSON.stringify(confirmOrder)) 
-                window.open(`./confirmOrder.html`, "confirmOrderPage");
+                //window.open(`./confirmOrder.html`, "confirmOrderPage");
+                window.location.href="./confirmOrder.html";
 
             } 
             else {

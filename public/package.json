@@ -1,0 +1,13 @@
+{
+  "name": "orinoco-puclic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "sass": "sass --watch ./scss/main.scss:./style.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  }
+}

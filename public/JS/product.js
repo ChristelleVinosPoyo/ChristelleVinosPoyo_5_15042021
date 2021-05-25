@@ -69,6 +69,7 @@ fetch(`http://localhost:3000/api/cameras/${id}`)
                 localStorage.setItem("ProductsInLocalStorage", JSON.stringify(inLocalStorage)) 
             }
         } 
+        window.alert("Un article a été ajouté au panier")
         })
     })
     .catch(error => console.log(`message d'erreur : ${error}`))
