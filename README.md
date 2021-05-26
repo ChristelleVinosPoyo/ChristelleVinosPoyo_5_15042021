@@ -1,8 +1,8 @@
 ### Prerequis ###
 
-La visualisation de ce projet nécessite l'installation de la partie back-end :
-https://github.com/OpenClassrooms-Student-Center/JWDP5#orinoco
+La visualisation de ce projet nécessite l'installation de la partie back-end  présente dans ce repo.
 Vous avez besoin que Node et `npm` soient installés.
+Exécutez "npm install" puis "node server". Le serveur doit s'exécuter avec le port par défaut 3000.
 
 ### ORICAMERA ###
 
